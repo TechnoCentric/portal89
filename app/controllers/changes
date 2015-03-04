@@ -1,0 +1,31 @@
+<div class="well">
+		{{ Form::open(array( 'id' => 'searchForm', 'class' => 'form-inline', 'method' => 'POST', 'route' => array('expenses.search'))) }}  
+		    <div class="col-md-4">
+		      {{ Form::text('search', Input::old('start'), array('class'=>'form-control', 'placeholder'=>'Search')) }}           
+		    </div><!-- /input-group -->	   
+		{{Form::close()}}
+
+		{{ Form::open(array( 'id' => 'selectProject', 'class' => 'form-inline', 'method' => 'POST', 'route' => array('expenses.search'))) }}
+			 <div class="col-md-3">  
+		    	{{ Form::select('project', array('-1' => 'Select Project') + $projects, null, array('class'=>'form-control', "onchange" => "myProject();" )) }}	    	
+		    </div>
+		{{Form::close()}}
+
+		{{ Form::open(array( 'id' => 'selectType', 'class' => 'form-inline', 'method' => 'POST', 'route' => array('expenses.search'))) }}    			
+		    <div class="col-md-3">
+		    	{{ Form::select('type', array('-1' => 'Select Type') + $categories, null, array('class'=>'form-control', "onchange" => "myType();" )) }}                    
+		    </div>
+		{{ Form::close() }}		   
+		{{ link_to_route('expenses.create', 'New Expense', null, array('class' => 'btn btn-success')) }}		
+	</div>      
+
+
+
+	<div class="well">
+		{{ Form::open(array( 'id' => 'searchForm', 'class' => 'form-inline', 'method' => 'POST', 'route' => array('expenses.search'))) }}  
+		    <div class="col-md-4">
+		      {{ Form::text('search', Input::old('start'), array('class'=>'form-control', 'placeholder'=>'Search')) }}           
+		    </div><!-- /input-group -->	   
+		{{Form::close()}}
+		{{ link_to_route('expenses.create', 'Create Expense', null, array('class' => 'btn btn-success')) }}
+	</div>		
